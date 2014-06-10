@@ -279,7 +279,7 @@ class Instances(Ec2Component):
         self.ec2.terminate_instances(
             instance_ids=self.get_ids(environment, state))
 
-    def create(self, environment, ami_image="ami-7539b41c", key_name="hibu_voice_key", instance_type="m1.small", zone=None):
+    def create(self, environment, ami_image="ami-7539b41c", key_name="app_key", instance_type="m1.small", zone=None):
         # ami-7539b41c = ubuntu 12.10 64bit
         reservation = self.ec2.run_instances(
             ami_image,
@@ -311,7 +311,7 @@ class Instances(Ec2Component):
 
 class AwsHelper(Loggable):
     """
-    provides an interface to hibu aws deployments
+    provides an interface to aws deployments
     """
 
     tags = {}
